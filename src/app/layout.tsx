@@ -5,17 +5,21 @@ import "./globals.css";
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Justin Restrepo | Cloud and AI Security",
+  title: "Justin Restrepo - Engineer",
   description: "Portfolio of Justin Restrepo. Cloud Security and AI Security professional based in Charlotte, NC.",
   keywords: ["Cloud Security", "AI Security", "Cybersecurity", "Software Engineer"],
   authors: [{ name: "Justin Restrepo" }],
   icons: {
-    icon: "/jr-favicon.png",
-    shortcut: "/jr-favicon.png",
-    apple: "/jr-favicon.png",
+    icon: [
+      { url: "/jr-favicon.png?v=3", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.png?v=3", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico?v=3", sizes: "any" },
+    ],
+    shortcut: "/jr-favicon.png?v=3",
+    apple: "/jr-favicon.png?v=3",
   },
   openGraph: {
-    title: "Justin Restrepo | Cloud and AI Security",
+    title: "Justin Restrepo - Engineer",
     description: "Portfolio of Justin Restrepo. Cloud Security and AI Security professional.",
     url: "https://justinrestrepo.com",
     siteName: "Justin Restrepo",
