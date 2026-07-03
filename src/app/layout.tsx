@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manrope.className} bg-white text-gray-900 antialiased`}>
+      <body className={`${manrope.className} antialiased`}>
         {children}
       </body>
     </html>

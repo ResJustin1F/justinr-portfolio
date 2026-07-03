@@ -73,6 +73,25 @@ export default function BuildingStories() {
   const activeIndex = activeStory ?? 0;
   const selectedStory = activeStory === null ? null : stories[activeStory];
 
+  function closeStoryAndReturn() {
+    setActiveStory(null);
+    window.setTimeout(() => {
+      document.getElementById("bringing-it-to-life")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
+  }
+
+  function goToNextStory() {
+    if (activeIndex === stories.length - 1) {
+      closeStoryAndReturn();
+      return;
+    }
+
+    setActiveStory(activeIndex + 1);
+  }
+
   return (
     <>
       <div className="grid gap-4 md:gap-5">
@@ -139,7 +158,7 @@ export default function BuildingStories() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="building-story-title"
-              className="story-modal relative z-10 flex w-full max-w-4xl flex-col overflow-hidden rounded-t-[2rem] border border-white/60 bg-[#F4F1EA] shadow-[0_30px_100px_rgba(0,0,0,0.3)] md:rounded-[2rem]"
+              className="story-modal relative z-10 flex max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col overflow-hidden rounded-t-[2rem] border border-white/60 bg-[#F4F1EA] shadow-[0_30px_100px_rgba(0,0,0,0.3)] md:max-h-[calc(100vh-4rem)] md:rounded-[2rem]"
             >
               <div className="h-1 w-full shrink-0 bg-gradient-to-r from-[#2952E3] via-[#7891ef] to-transparent" />
 
@@ -179,14 +198,14 @@ export default function BuildingStories() {
                   type="button"
                   aria-label="Close story"
                   onClick={() => setActiveStory(null)}
-                  className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full border border-black/10 bg-[#F4F1EA]/80 text-xl text-[#14181F] backdrop-blur transition-all hover:rotate-90 hover:border-[#2952E3]/30 hover:bg-white hover:text-[#2952E3] focus:outline-none focus:ring-2 focus:ring-[#2952E3]/40"
+                  className="relative z-20 grid h-12 w-12 shrink-0 place-items-center rounded-full border border-[#2952E3]/30 bg-[#F4F1EA]/90 text-xl text-[#14181F] shadow-[0_8px_22px_rgba(20,24,31,0.08)] backdrop-blur transition-all hover:rotate-90 hover:border-[#2952E3]/30 hover:bg-white hover:text-[#2952E3] focus:outline-none focus:ring-2 focus:ring-[#2952E3]/40 md:h-11 md:w-11 md:border-black/10 md:shadow-none"
                 >
                   ×
                 </button>
               </header>
 
               <div
-                className="story-modal-body flex-1"
+                className="story-modal-body flex-1 overflow-y-auto overscroll-contain"
                 style={{ padding: "0.9rem clamp(1.5rem, 4vw, 2.5rem) 1.05rem" }}
               >
                 <div className="story-modal-copy" style={{ display: "grid", gap: "0.9rem" }}>
@@ -245,7 +264,7 @@ export default function BuildingStories() {
                 </span>
                 <button
                   type="button"
-                  onClick={() => setActiveStory((activeIndex + 1) % stories.length)}
+                  onClick={goToNextStory}
                   className="story-modal-nav font-medium text-[#5B6270] transition-colors hover:text-[#2952E3]"
                   style={{ minWidth: "6.75rem", fontSize: "1rem", lineHeight: 1.4, textAlign: "right" }}
                 >

@@ -128,6 +128,7 @@ export default function Home() {
         </AccordionItem>
 
         <AccordionItem title="Bringing it to life">
+          <div id="bringing-it-to-life" />
           <div className="mb-8 grid gap-3 border-l-2 border-[#2952E3] pl-5 md:mb-10 md:grid-cols-[10rem_1fr] md:gap-8 md:pl-7">
             <p className="pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#2952E3]">
               Selected stories · 01—03

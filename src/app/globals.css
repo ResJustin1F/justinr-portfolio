@@ -8,9 +8,12 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light only;
+  background-color: #F4F1EA;
 }
 
 body {
+  min-height: 100vh;
   background-color: #F4F1EA;
   color: #14181F;
 }
