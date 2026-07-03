@@ -30,7 +30,7 @@ export default function ContactSection() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/contact-form.html", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
@@ -83,6 +83,7 @@ export default function ContactSection() {
           <form
             name="portfolio-contact"
             method="POST"
+            action="/"
             data-netlify="true"
             netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
